@@ -1,0 +1,38 @@
+{% extends "AppCoder/padre.html" %}
+
+
+{% load static %}
+
+    {% block contenido2 %}
+    <h1 class="mb-1"> BUSQUEDA EQUIPO!!</h1>
+    {% endblock %}
+
+    {% block contenido3 %}
+        Busqueda Equipo
+    {% endblock %}
+
+{% block contenido %}
+
+    <!-- Aca voy poniendo lo distinto que quiero que aparezca solo en inicio!! -->
+    <h1 style="color:deeppink;"> Estamos buscando </h1>
+
+        <li>Estamos buscando.. </li>
+
+    {% if equipos %}
+
+        <u1>
+
+        {% for equipo in equipos %}
+
+        <li> <h3>NOMBRE:</h3>   {{  equipo.nombre }}</li>
+        <li>   CIUDAD:   {{ equipo.ciudad }}</li>
+
+        {% endfor %}
+
+        </u1>
+
+    {% endif %}
+
+
+
+{% endblock %}

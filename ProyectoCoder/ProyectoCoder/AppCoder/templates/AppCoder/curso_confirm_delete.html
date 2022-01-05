@@ -1,0 +1,29 @@
+c{% extends "AppCoder/padre.html" %}
+
+
+{% load static %}
+
+    {% block contenido2 %}
+    <h1 class="mb-1">Confirma el delete</h1>
+    {% endblock %}
+
+    {% block contenido3 %}
+     Delete?
+    {% endblock %}
+
+
+ <!-- Cuando ponemos lenguaje python en html ponemos entre dos llaves y porcentajes -->
+
+    {% block contenido %}
+
+    <form method="POST"> {% csrf_token %}
+        
+        Estas seguro de borrar?? ---> "{{ object.nombre }}"
+        
+        <input type="submit" value="Ok - de acuerdo!! ">
+
+    </form>
+    
+    {% endblock %}
+
+

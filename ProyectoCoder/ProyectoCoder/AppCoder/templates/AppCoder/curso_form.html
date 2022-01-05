@@ -1,0 +1,45 @@
+{% extends "AppCoder/padre.html" %}
+
+
+{% load static %}
+
+    {% block contenido2 %}
+    <h1 class="mb-1"> Formulario de curso - modificar un curso!?? </h1>
+    {% endblock %}
+
+    {% block contenido3 %}
+     Formulario Curso  
+    {% endblock %}
+
+
+ <!-- Cuando ponemos lenguaje python en html ponemos entre dos llaves y porcentajes -->
+
+    {% block contenido %}
+
+       
+    <!-- Aca voy poniendo lo distinto que quiero que aparezca solo en estadioFormulario!! -->
+
+    <form method="POST"> {% csrf_token %}
+        
+        {{ form.as_p }}
+        <!-- Asi lo hicimos la primera vez sin la ayuda de Django
+        <p> Direccion: <input type="text" name="direccion"> </p>
+
+        <p> Anio: <input type="number" name="anioFund"> </p>
+
+        <input type="submit" value="Enviooo">
+
+        -->
+
+        
+
+        <input type="submit" value="Agregar nuevo avatar">
+
+
+
+    </form>
+
+
+    {% endblock %}
+
+

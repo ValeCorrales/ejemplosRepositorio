@@ -1,0 +1,56 @@
+c{% extends "AppCoder/padre.html" %}
+
+
+{% load static %}
+
+    {% block contenido2 %}
+    <h1 class="mb-1">Leer Cursos</h1>
+    {% endblock %}
+
+    {% block contenido3 %}
+     Leer cursos!! 
+    {% endblock %}
+
+
+ <!-- Cuando ponemos lenguaje python en html ponemos entre dos llaves y porcentajes -->
+
+    {% block contenido %}
+
+        <p>Aca tenemos todos los cursos</p> <br>
+        <ul> 
+            {% for curso in object_list %}
+
+            <li>
+                <p>NOMBRE: {{ curso.nombre }}</p>
+                <p>Camada del curso: <i>{{ curso.camada }}</i></p>
+        
+
+                
+                <p>
+                     <a href="{% url 'Detail' curso.id %}"> Ver mas </a>
+                     <br>
+                     <a href="{% url 'Edit' curso.id %}"> Editar </a>
+                     <br>
+                     <a href="{% url 'Delete' curso.id %}"> Borrar </a>
+
+                </p>
+
+                
+
+            </li>
+
+            {% endfor %}
+        </ul>
+
+        <!--recibo por parametro un objeto, el objeto_list es un objeto de django que yo no controlo, 
+            lo que digo es: cada uno de estos objetos va a ser un curso, y despues con curso
+            digo: mostrame los cursos
+        
+        -->
+
+    <!-- Aca voy poniendo lo distinto que quiero que aparezca solo en estadioFormulario!! -->
+
+    
+    {% endblock %}
+
+

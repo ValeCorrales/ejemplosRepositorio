@@ -21,3 +21,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('AppCoder/', include('AppCoder.urls')) #de esta forma queda la relacion entre el pry y la app
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+#+= a lo que teniamos les sumamos eso - IMPORTAR STATIC! y settings!

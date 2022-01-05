@@ -14,7 +14,9 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
+        
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        
         <!-- Simple line icons-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -24,6 +26,8 @@
     </head>
     <body id="page-top">
         <!-- Navigation La barra de navegacion es lo del costadito de la pagina -->
+         <!--Agregar boton para hacer el login:. como no tiene sentido hacer que se loguee alguien que ya esta 
+        logeado hacemos este if: si no fuiste autenticado, mostra este boton de ingresar -->
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -31,7 +35,15 @@
                 <li class="sidebar-nav-item"><a href="{% url 'Jugadores' %}">Jugadores</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'Equipos' %}">Equipos</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'Estadio' %}">Estadio</a></li>
-                <li class="sidebar-nav-item"><a href="">Esta sobrando esto por ahora</a></li>
+                       
+                {% if not request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="{% url 'Login' %}">HACER LOGIN</a></li>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                <li class="sidebar-nav-item">Hola, {{user.username}}</a></li>
+                {% endif %}
+
             </ul>
         </nav>
         <!-- Header: es la cabezera -->

@@ -5,19 +5,27 @@
 
     {% block contenido2 %}
     <h1 class="mb-1"> Este es el titulo de inicio</h1>
+
+    {% if  request.user.is_authenticated %}
+            <img src="{{ avatar }}" alt="">
+            <h3> {{ mensaje }}</h3>
+    {% endif %}
+
     {% endblock %}
 
 
 
     {% block contenido %}
 
+    <!-- LAS LLAVES Y EL % ES PARA LENGUAJE PYTHON, Y LAS DOS LLAVES ES PARA TRABAJAR CON DJANGO!! -->
     <!-- Aca voy poniendo lo distinto que quiero que aparezca solo en inicio!! -->
     <h1 style="text-align: center; color: cyan;"> Titulo del inicio </h1>
 
     <h2 style="background: chartreuse; text-align: center;"> Subtitulo del inicio!! </h2>
 
-    <p style="text-align: center;"> Estoy porbando un parrafoooooo </p>
+    <p style="text-align: center;"> Estoy probando un parrafoooooo </p>
 
+    <li class=""><a href="{% url 'AgregarAvatar' %}">AGREGAR AVATAR!!</a></li>
 
     {% endblock %}
 
